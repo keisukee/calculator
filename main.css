@@ -1,0 +1,14 @@
+ul {
+  list-style: none;
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+}
+
+.numbers li {
+  display: inline-block;
+  width: 33%;
+}
