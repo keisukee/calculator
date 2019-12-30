@@ -1,26 +1,28 @@
-let btn1Wrapper = document.getElementById('input-1');
-let btn1 = btn1Wrapper.querySelector('button');
-let outputBtn = document.getElementById('output-value')
-
-let undoWrapper = document.getElementById('undo');
-let undoBtn = undoWrapper.querySelector('button');
-
-let resetWrapper = document.getElementById('reset');
-let resetBtn = resetWrapper.querySelector('button');
-
-
-
-btn1.onclick = function() {
+function insertValue(inputBtn) {
   outputValue = outputBtn.innerText;
   if (outputValue === '0') {
-    outputBtn.innerText = btn1.innerText;
+    outputBtn.innerText = inputBtn.innerText;
   } else {
-    outputValue += btn1.innerText;
+    outputValue += inputBtn.innerText;
     outputBtn.innerText = outputValue;
   }
-  console.log(btn1.innerText);
+  console.log(inputBtn.innerText);
   console.log("btn is clicked!!");
 }
+
+function edit(elem) {
+  if (outputBtn.innerText === '0') {
+    outputBtn.innerText = elem.innerText;
+  } else {
+    outputBtn.innerText = outputBtn.innerText + elem.innerText;
+  }
+  console.log(outputBtn.innerText);
+}
+
+function calc() {
+  outputBtn.innerText = new Function("return + " + outputBtn.innerText)();
+}
+
 
 resetBtn.onclick = function() {
   outputBtn.innerText = 0;
